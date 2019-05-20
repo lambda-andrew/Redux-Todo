@@ -12,6 +12,7 @@ class TodoContainer extends React.Component {
     }   
 
     handleChanges = e => {
+        console.log(this.state.newTodo.value)
         this.setState({
             newTodo: {
                 ...this.state.newTodo,
@@ -22,7 +23,7 @@ class TodoContainer extends React.Component {
 
     addNewTodo = e => {
         e.preventDefault();
-        addTodo(this.state.newTodo)
+        this.props.addTodo(this.state.newTodo)
     }
 
     render() {

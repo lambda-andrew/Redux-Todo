@@ -8,9 +8,9 @@ export const addTodo = todo => {
     }
 }
 
-export const toggleTodo = todo => {
+export const toggleTodo = completedTask => {
     return {
         type: TOGGLE_TODO,
-        payload: todo
+        payload: !completedTask
     }
 }

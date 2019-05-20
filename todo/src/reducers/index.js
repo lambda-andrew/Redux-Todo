@@ -12,12 +12,12 @@ export const reducer = (state = initialState, action) => {
         case ADD_TODO: 
             return {
                 ...state, 
-                value: [...state.todos, action.payload]
+                todos: [...state.todos, action.payload]
             }
         case TOGGLE_TODO: 
             return {
                 ...state,
-                completed: !state.todos.completed
+                completed: action.payload
             }
         default: 
             return state;
