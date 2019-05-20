@@ -1,8 +1,8 @@
-export const UPDATE_TODOLIST = "UPDATE_TODOLIST"
+export const ADD_TODO = "ADD_TODO"
 
-export const updateTodoList = todos => {
+export const addTodo = todos => {
     return {
-        type: UPDATE_TODOLIST,
+        type:ADD_TODO,
         payload: todos
     }
 }

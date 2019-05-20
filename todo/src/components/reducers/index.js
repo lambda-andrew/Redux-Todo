@@ -1,4 +1,4 @@
-import { UPDATE_TODOLIST } from '../actions'
+import { ADD_TODO } from '../actions'
 
 const initialState = {
     todos: [
@@ -12,7 +12,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_TODOLIST:
+        case ADD_TODO:
             return {
                 ...state,
                 todos: [...state.todos, action.payload]
