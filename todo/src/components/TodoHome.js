@@ -4,27 +4,16 @@ import { addTodo } from '../components/actions'
 
 class TodoHome extends React.Component {
   state = {
-      Newtodos: [
-          {
-              value: '',
-              completed: false
-          }
-      ]
+      newTodos: ""
   }
 
   handleChanges = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ newTodos: e.target.value});
   };
 
   addTodo = e => {
     e.preventDefault()
-    const newPayload = {
-      id: Date.now(),
-      value: this.state.Newtodos,
-      completed: false
-    }
-    console.log(this.props.addTodo)
-    this.props.addTodo(newPayload)
+   this.props.addTodo(this.state.newTodos)
   }
   render() {
     return (
@@ -35,7 +24,7 @@ class TodoHome extends React.Component {
             <input
                 type="text"
                 name="newTodoValue"
-                value={this.state.Newtodos.value}
+                value={this.state.newTodos}
                 onChange={this.handleChanges}
             />
             <button onClick={this.addTodo}>Add Todo</button>
@@ -50,5 +39,8 @@ const mapStateToProps = (state) => {
     }
   }
 
+const mapActionToProps = {
+    addTodo
+}
 
-export default connect(mapStateToProps, addTodo)(TodoHome)
+export default connect(mapStateToProps, mapActionToProps)(TodoHome)

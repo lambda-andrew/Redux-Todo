@@ -15,7 +15,11 @@ export const reducer = (state = initialState, action) => {
         case ADD_TODO:
             return {
                 ...state,
-                todos: [...state.todos, action.payload]
+                todos: state.todos.concat({
+                    id: Date.now(),
+                    value: action.payload,
+                    completed: false
+                })
             }
         default:
             return state;
