@@ -20,8 +20,10 @@ class TodoHome extends React.Component {
     e.preventDefault()
     const newPayload = {
       id: Date.now(),
-      value: this.state.Newtodos
+      value: this.state.Newtodos,
+      completed: false
     }
+    console.log(this.props.addTodo)
     this.props.addTodo(newPayload)
   }
   render() {
@@ -43,7 +45,6 @@ class TodoHome extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state)
     return {
       todosOnProps: state.todos
     }

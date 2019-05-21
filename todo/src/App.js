@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-    <TodoHome />
+    <TodoHome someProp='this is a random prop'/>
     </div>
   );
 }
