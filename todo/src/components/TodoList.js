@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Todo from './Todo';
 import {connect} from 'react-redux';
 import {addTodo} from '../actions';
+import Styled from 'styled-components';
 
 
 
@@ -35,11 +36,11 @@ class TodoList extends Component {
                     <button onClick={this.addTodo}>Add Todo</button>
                 </form>
 
-                {this.props.todos.map((todo, index) => {
+                {this.props.todos.map((todo) => {
                     return (
-                        <div>
-                            <Todo todo={todo} key={index}/>
-                        </div>
+                        <Card key={todo.id}>
+                            <Todo todo={todo}/>
+                        </Card>
                     )
                 })}
                 
@@ -53,5 +54,16 @@ const mapStateToProps = (state) => {
         todos: state.todos
     }
 }
+
+const Card = Styled.div `
+
+display: flex:
+flex-direction: column;
+justify-content: center;
+    border-bottom: 1px solid gray;
+    width: 300px;
+    margin: 0 auto;
+    cursor: pointer;
+`
 
 export default connect(mapStateToProps, {addTodo})(TodoList);

@@ -1,4 +1,5 @@
 import { ADD_TODO } from '../actions';
+import uuid from 'uuid';
 
 const initialState = {
     todos:[]
@@ -10,7 +11,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 todos: [...state.todos,
-                        {value: action.payload, completed: false}
+                        {id: uuid(), value: action.payload, completed: false}
                 ]
             }
             default:
