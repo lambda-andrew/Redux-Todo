@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addTodo, toggleMe, removeMe} from '../actions';
+import Styled from 'styled-components';
+
 import './style.css'
 
 
 class TodoList extends Component {
-
+   
   state = {
       newTodo: ''
   }
@@ -36,14 +38,16 @@ class TodoList extends Component {
   }
 
     render() {
+
+        
         return (
-            <React.Fragment>
+            <Wrapper>
               <input type="text" id="todo" 
                    placeholder="Add todo..." 
                    onChange={this.handleChange}
                    value={this.state.newTodo}
              />
-            <button onClick={this.addTodo}>Add todo</button>
+            <button onClick={this.addTodo}>Add Todo</button>
             <button onClick={this.removeMe}>Remove</button>
             <div>   
                 {this.props.todos.map(todo => (
@@ -55,7 +59,7 @@ class TodoList extends Component {
                     </div>
                 ))}
             </div>
-        </React.Fragment>
+        </Wrapper>
         )
     }
 }
@@ -65,6 +69,27 @@ const mapStateToProps = (state) => {
         todos: state.todos
     }
 }
+
+const Wrapper = Styled.div `
+
+margin-top: 50px;
+    input {
+        width: 200px;
+        font-size: 1rem;
+        text-indent: 5px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    button {
+        font-size: 1rem;
+        padding: 6px;
+        margin-left:6px;
+    }
+    h3 {
+        cursor: pointer;
+        font-size: 2rem;
+    }
+`
 
 
 export default connect(mapStateToProps, {addTodo, toggleMe, removeMe})(TodoList);
