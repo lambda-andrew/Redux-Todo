@@ -24,7 +24,7 @@ class TodoHome extends React.Component {
     return (
         <div>
             {this.props.todosOnProps.map(item => (
-                <h4 onClick={(e)=>this.toggleTodo(e, item.id)} key={item.id}>{item.value}{item.completed && ": done"}</h4>
+                <h4 onClick={(e)=>this.toggleTodo(e, item.id)} key={item.id}>{item.completed && <i className="far fa-check-square"></i>}{' '}{item.value}</h4>
             ))}
             <input
                 type="text"
