@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_ME } from '../actions';
+import { ADD_TODO, TOGGLE_ME, REMOVE_ME } from '../actions';
 import uuid from 'uuid';
 
 const initialState = {
@@ -23,12 +23,19 @@ export const reducer = (state = initialState, action) => {
                         ...todo,
                         completed: !todo.completed
                     }
-                    
+
                     }else{
                         return todo;
                  }
             })
         };
+        case REMOVE_ME:
+            return{
+                ...state,
+                todos: [...state.todos.filter(todo => {
+                    return !todo.completed
+                })]
+            }
             default:
              return state;
     };

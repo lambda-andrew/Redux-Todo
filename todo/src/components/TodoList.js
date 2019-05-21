@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addTodo, toggleMe} from '../actions';
+import {addTodo, toggleMe, removeMe} from '../actions';
 import './style.css'
 
 
@@ -30,6 +30,11 @@ class TodoList extends Component {
     this.props.toggleMe(id)
   }
 
+  removeMe = (e) => {
+     e.preventDefault();
+     this.props.removeMe();
+  }
+
     render() {
         return (
             <React.Fragment>
@@ -39,7 +44,7 @@ class TodoList extends Component {
                    value={this.state.newTodo}
              />
             <button onClick={this.addTodo}>Add todo</button>
-            <button>Remove</button>
+            <button onClick={this.removeMe}>Remove</button>
             <div>   
                 {this.props.todos.map(todo => (
                     <div key={todo.id} >
@@ -62,4 +67,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {addTodo, toggleMe})(TodoList);
+export default connect(mapStateToProps, {addTodo, toggleMe, removeMe})(TodoList);
