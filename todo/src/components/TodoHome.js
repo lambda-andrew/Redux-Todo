@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { addTodo } from '../components/actions'
+import { addTodo, toggleTodo } from '../components/actions'
 
 class TodoHome extends React.Component {
   state = {
@@ -15,11 +15,16 @@ class TodoHome extends React.Component {
     e.preventDefault()
    this.props.addTodo(this.state.newTodos)
   }
+
+  toggleTodo = (e, id) => {
+      e.preventDefault()
+      this.props.toggleTodo(id)
+  }
   render() {
     return (
         <div>
             {this.props.todosOnProps.map(item => (
-                <h4 key={item.id}>{item.value}</h4>
+                <h4 onClick={(e)=>this.toggleTodo(e, item.id)} key={item.id}>{item.value}{item.completed && ": done"}</h4>
             ))}
             <input
                 type="text"
@@ -40,7 +45,8 @@ const mapStateToProps = (state) => {
   }
 
 const mapActionToProps = {
-    addTodo
+    addTodo,
+    toggleTodo
 }
 
 export default connect(mapStateToProps, mapActionToProps)(TodoHome)
