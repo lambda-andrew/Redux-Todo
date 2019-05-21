@@ -2,7 +2,7 @@ import React from 'react';
 
 import TodoHome from './components/TodoHome'
 
-import './App.css';
+import './App.scss';
 
 
 function App() {

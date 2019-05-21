@@ -1,0 +1,45 @@
+.App{
+  width: 900px;
+  margin-left: 13%;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1{
+    margin: 0;
+    padding: 5%
+  }
+
+  .todoHome{
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+    align-items: center; 
+    form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      input {
+        margin-left: 30%;
+        width: 25%;
+        height: 30px;
+        border: 0px;
+        border-bottom: 1px solid black;
+        background-color: #E2E5E8;
+      }
+      :focus {
+        outline: none;
+      }
+      button {
+        width: 15%;
+        height: 30px;
+        margin-left: 10px;
+        border-radius: 4px;
+        border: 1px solid black;
+        background-color: #DDDEE3;
+      }
+    }
+  }
+
+}
