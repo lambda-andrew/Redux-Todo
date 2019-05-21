@@ -52,6 +52,7 @@ function reducer(state = initialState, action){
 
 export default reducer;
 
+//old initialstate
 // {
 //     id: 0,
 //     name: "Walk the dog",
@@ -67,7 +68,7 @@ export default reducer;
 //     name: "Install Microsoft Flight Simulator X",
 //     completed: true,
 // }
-// TOGGLE TODOS
+//case TOGGLE TODOS
 // return {
 //     ...state,
 //     todos: state.todos.map(todo => {
