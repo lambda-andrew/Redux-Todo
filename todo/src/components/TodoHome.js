@@ -32,6 +32,7 @@ class TodoHome extends React.Component {
                 <input
                     type="text"
                     name="newTodoValue"
+                    placeholder="..."
                     value={this.state.newTodos}
                     onChange={this.handleChanges}
                 />
