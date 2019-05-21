@@ -14,6 +14,7 @@ class TodoHome extends React.Component {
   addTodo = e => {
     e.preventDefault()
    this.props.addTodo(this.state.newTodos)
+   this.setState({newTodos: ""})
   }
 
   toggleTodo = (e, id) => {
