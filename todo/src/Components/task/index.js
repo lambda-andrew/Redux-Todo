@@ -12,7 +12,7 @@ class Task extends React.Component {
                     {this.props.task}
                 </td>
                 <td>
-                    <button onClick={()=>{this.props.deleteTask(this.props.id)}}>Delete</button>
+                    <button onClick={()=>{this.props.deleteTask(this.props.id)}}>Done</button>
                 </td>
             </tr>
         )
